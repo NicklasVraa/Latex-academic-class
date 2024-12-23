@@ -153,8 +153,8 @@ A collection of essential commands and aliases.
   Alias: \publication {...}.
 - `\toc` \
   Generate table of contents.
-- `\url{text}{link}` \
-  E.g. {label}{actual url}
+- `\url{link}{text}` \
+  E.g. {https://github.com/NicklasVraa}{my page}. If `text` is not provided, the raw link will be displayed.
 - `\cols{n}{...}` \
   Horizontally align content. \
   Use `\begin{columns}{n} ... \end{columns}` if `\cols` doesn't work. \
