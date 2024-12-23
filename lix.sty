@@ -99,25 +99,19 @@
 % BASICS: ----------------------------------------------------------------------
 \ifnum\useBasics=1
 
+    \RequirePackage{pdfpages}
+
     % Add ----------------------------------------------------------------------
-    \NewDocumentCommand{\add}{sm}{ % One command tex and pdf files.
-        \filename@parse{#2}
+    \NewDocumentCommand{\add}{mg}{ % One command for including tex and pdf files.
+        \filename@parse{#1}
         \ifnum\pdfstrcmp{\filename@ext}{pdf}=0%
-            \newpage%
-            \AddToShipoutPicture*{%
-                \put(0,0){%
-                    \parbox[b][\paperheight]{\paperwidth}{%
-                        \vfill\centering%
-                        \includegraphics[width=\paperwidth,height=\paperheight]{#2}%
-                        \vfill%
-                    }
-                }
-            }
-            \IfBooleanTF{#1}{}{% Background instead of new page.
-                \null\newpage%
-            }
+            \IfValueTF{#2}{%
+                \includepdf[pages=#2]{#1}%
+            }{%
+                \includepdf[pages=-]{#1}%
+            }%
         \else%
-            \input{#2}%
+            \input{#1}%
         \fi%
     }
 

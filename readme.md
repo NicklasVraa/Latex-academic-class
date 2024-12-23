@@ -131,8 +131,8 @@ A collection of essential commands and aliases.
 
 - `\abstract{summary of findings}` \
   Alias: \blurb{...} (for books).
-- `\add{path/to/file.tex/pdf}` \
-  Inserts the tex-code from the given file, exactly like `\input{}`, but also handles pdf files, which are inserted as pages. If starred, i.e. `add*{}`, the given pdf will become the background of the current page.
+- `\add{path/to/file.tex/pdf}{pages}` \
+  Inserts the tex-code from the given file, exactly like `\input{}`, but also handles pdf files, which are inserted as pages. The `pages` parameter is optional, only applies to pdfs, and can be a range, e.g. `2-4`, individual pages, e.g. `1,3,7`, and any combination of the two, i.e. `1-3,5,8-10`.
 - `anchor{position}{...}` \
   Aligns its content either `left`, `right` or `center`.
 - `\authors{first}{second}{...}{sixth}` \
